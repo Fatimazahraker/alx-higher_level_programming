@@ -3,7 +3,7 @@
 /**
  * check_cycle - check in a list have a loop
  * @list: list
- * Return: 1 is success or 0 
+ * Return: 1 is success or 0
  */
 
 int check_cycle(listint_t *list)
@@ -23,7 +23,7 @@ int check_cycle(listint_t *list)
 			return (1);
 		}
 		chain1 = chain1->next;
-		chain2 = chain2->chain2->next;
+		chain2 = chain2->next->next;
 	}
 	return (0);
 }
