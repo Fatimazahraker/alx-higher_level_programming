@@ -5,55 +5,28 @@
 #include <unistd.h>
 #include <stddef.h>
 
-/**
- * reverse_listint - linkeclist reversed
- * @head: head
- * Return: pointer
- */
-
-void reverse_listint(listint_t **head)
+int is_palindrome(listint_t **head)
 {
-	listint_t *prev = NULL;
-	listint_t *current = *head;
-	listint_t *next = NULL;
+	listint_t *current = *head, *palin = *head;
+	int counter = 0, i = 0, j = 0;
+
+	if (!*head)
+		return (1);
 
 	while (current)
 	{
-		next = current->next;
-		current->next = prev;
-		prev = current;
-		current = next;
+		current = current->next;
+		counter++;
 	}
-
-	*head = prev;
-}
-
-/**
- * is_palindrome - check palindrome
- * @head: head
- * Return: 1 if true or 0
- */
-
-int is_palindrome(listint_t **head)
-{
-	listint_t *temp = *head, *dup = NULL;
-
-	if (*head == NULL || (*head)->next == NULL)
-		return (1);
-
-	while (1)
+	current = *head;
+	for (i = 1; i <= counter; i++)
 	{
-		if (temp->n == dup->n)
-		{
-			dup = dup->next;
-			temp = temp->next;
-		}
-		else
+		for (j = i; j <= counter - i; j++)
+			palin = palin->next;
+		if (current->n != palin->n)
 			return (0);
+		current = current->next;
+		palin = current;
 	}
-
-	if (!dup)
-		return (1);
-
-	return (0);
+	return (1);
 }
