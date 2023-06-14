@@ -11,7 +11,7 @@ def roman_to_int(roman_string):
             "C": 100,
             "D": 500,
             "M": 1000
-    }
+            }
     num = 0
 
     for i in range(len(roman_string)):
@@ -19,8 +19,8 @@ def roman_to_int(roman_string):
             return (0)
 
         if (i != (len(roman_string) - 1) and
-                roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
-                num += roman_dict[roman_string[i]] * -1
+                 roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
+            num += roman_dict[roman_string[i]] * -1
 
         else:
             num += roman_dict[roman_string[i]]
