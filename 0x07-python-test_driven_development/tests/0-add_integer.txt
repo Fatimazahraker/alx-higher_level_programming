@@ -1,0 +1,118 @@
+The ''0-add_integer '' module 
+==============================
+
+
+Using ''add_integr'' 
+------------------------
+
+``add_integer(...)``` returns addition of two args. For nums,
+that value is equivalent to using ``+``.
+
+::
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(4, 6)
+	10
+
+case where a in positive and b is negative
+
+::
+	>>> add_integer(8, -2)
+	6
+
+case where a is a float aand b in int
+
+::
+
+	>>> add_integer(3.2, 5)
+	8
+
+case where a and b are float
+
+::
+	>>> add_integer(8.3, 7.1)
+	15
+
+case where two negative float
+
+::
+	>>> add_integer(-2.0, -1.5)
+	-3
+
+case single argument
+
+::
+	>>> add_integer(3)
+	101
+
+case signgle argument float
+
+::
+	>>> add_integer(0.25)
+	98
+
+case strings
+============
+
+``add_integer()`` expect two integer or two floats otherwize raise
+a TypeError exception with the message ``a must be an integer`` or 
+``b must be an integer``
+
+::
+	>>> add_integer("gfh", 6)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+::
+
+	>>> add_integer(3, "string")
+	Traceback (most recent call last):
+	TypeError: b must be an integer
+
+::
+
+	>>> add_integer("str", "abc")
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+::
+
+	>>> add_integer("str")
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+::
+
+	>>> add_integer(float('inf'), 5)
+	Traceback (most recent call last):
+	OverflowError: cannot convert float infinity to integer
+
+::
+
+	>>> add_integer(-3, float('inf'))
+	Traceback (most recent call last):
+	OverflowError: cannot convert float infinity to integer
+
+::
+
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+	OverflowError: cannot convert float infinity to integer
+
+::
+
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+	ValueError: cannot convert float NaN to integer
+
+::
+
+	>>> add_integer(5.3, float('nan'))
+	Traceback (most recent call last):
+	ValueError: cannot convert float NaN to integer
+
+
+
+	
+
+	
+
