@@ -17,7 +17,7 @@ class Rectangle(Base):
     def width(self):
         """ width doc """
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         if type(value) != int:
@@ -80,9 +80,9 @@ class Rectangle(Base):
 
     def __str__(self):
         """ str presenation"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, 
-                                                        self.x, self.y, 
-                                                        self.width, self.height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)
 
     def update(self, *args, **kwargs):
         """
