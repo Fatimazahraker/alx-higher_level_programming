@@ -1,4 +1,4 @@
-tes a table second_table in the database hbtn_0c_0
+-- tes a table second_table in the database hbtn_0c_0
 -- cat 9-full_creation.sql | sudo mysql -hlocalhost -uroot -p hbtn_0c_0
 CREATE TABLE
     IF NOT EXISTS second_table (id INT, name VARCHAR(256), score INT);
