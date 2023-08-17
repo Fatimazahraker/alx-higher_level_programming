@@ -1,4 +1,4 @@
---creates the database hbtn_0d_usa and the table cities (in the database hbtn_0d_usa) 
+-- creates the database hbtn_0d_usa and the table cities (in the database hbtn_0d_usa) 
 -- cat 7-cities.sql | sudo mysql -hlocalhost -uroot -p
 -- echo 'INSERT INTO cities (state_id, name) VALUES (1, "San Francisco");' | sudo mysql -hlocalhost -uroot -p hbtn_0d_usa
 -- echo 'SELECT * FROM cities;' | sudo mysql -hlocalhost -uroot -p hbtn_0d_usa
