@@ -13,7 +13,7 @@ if __name__ == "__main__":
     ON cities.state_id = states.id
     ORDER BY cities.id""")
     cur.execute(query)
-    rows = start.fetchall()
+    rows = cur.fetchall()
     for row in rows:
         print(row)
     cur.close()
