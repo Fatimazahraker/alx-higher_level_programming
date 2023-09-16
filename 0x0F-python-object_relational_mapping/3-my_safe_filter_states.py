@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     for row in rows:
         if row == sys.arg[4]:
-            iprint(row)
+            print(row)
 
     cur.close()
     db.close() 
