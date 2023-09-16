@@ -15,12 +15,15 @@ if __name__ == "__main__":
     cur.execute(query, (argv[4],))
     rows = cur.fetchall()
     if len(rows) == 0:
-         print()
+        print()
+
     for i in range(len(rows)):
         print(rows[i][0], end="")
+
         if i == len(rows) - 1:
             print()
         else:
             print(end=", ")
+
     cur.close()
     db.close()
