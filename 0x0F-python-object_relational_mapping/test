@@ -15,15 +15,10 @@ if __name__ == "__main__":
                  )
 
     with engine.connect() as connection:
-        query = select(State).order_by(State.id.asc())
-        states = connection.execute(query).fetchone()
-        if states:
-<<<<<<< HEAD
+        query = select(State).order_by(State.id.asc()) \
+                .where(State.name.like("%a%"))
+        states = connection.execute(query)
+        for state in states:
             print(f"{state.id}: {state.name}")
-=======
-            print(f"{states.id}: {states.name}")
->>>>>>> 118d34f423ebc2c2b78bdf5ad3263e7418e74dc2
-        else:
-            print("Nothing")
 
     engine.dispose()
