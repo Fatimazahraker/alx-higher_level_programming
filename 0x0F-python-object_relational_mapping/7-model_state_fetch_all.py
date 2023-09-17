@@ -1,21 +1,23 @@
 #!/usr/bin/python3
-"""module  retrieves states from database"""
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, Session
-from model_state import State, Base
-from sys import argv
+""" lists all State objects from the database hbtn_0e_6_usa
+"""
 
-
-def main():
-    """func not start if imported"""
-    engine = create_engine(f"mysql+mysqldb://{argv[1]}:{argv[2]}\
-                           @localhost:3306/{argv[3]}")
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    rows = session.query(State).order_by(State.id).all()
-    for row in rows:
-        print(f"{row.id}: {row.name}")
-
+import sys
+from model_state import Base, State
+from sqlalchemy import create_engine, select
 
 if __name__ == "__main__":
-    main()
+    engine = create_engine(
+            "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+                sys.argv[1], sys.argv[2], sys.argv[3]
+                ),
+                 pool_pre_ping=True,
+                 )
+
+    with engine.connect() as connection:
+        query = select(State).order_by(State.id.asc())
+        states = connection.execute(query)
+        for state in states:
+            print(f"{state.id}: {state.name}")
+
+    engine.dispose()
