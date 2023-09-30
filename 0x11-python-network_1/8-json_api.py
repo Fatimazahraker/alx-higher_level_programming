@@ -1,13 +1,21 @@
 #!/usr/bin/python3
-"""script that takes in a URL and an email address, sends a POST request"""
-
+""" module doc """
 import requests
 import sys
 
 if __name__ == "__main__":
-    url = sys.argv[1]
-    r = requests.get(url)
-    if (r.status_code >= 400):
-        print(f"Error code: {res.status_code}")
-        exit()
-    print(r.text)
+    if len(sys.argv) > 1:
+        q = sys.argv[1]
+    else:
+        q = ""
+    url = "http://0.0.0.0:5000/search_user"
+    params = {"q": q}
+    res = requests.post(url, data=params)
+    try:
+        resjson = res.json()
+        if resjson:
+            print(f'[{resjson["id"]}] {resjson["name"]}')
+        else:
+            print("No result")
+    except Exception:
+        print("Not a valid JSON")
