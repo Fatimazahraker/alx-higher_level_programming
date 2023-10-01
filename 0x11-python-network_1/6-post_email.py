@@ -1,4 +1,4 @@
-~#!/usr/bin/python3
+#!/usr/bin/python3
 """script that takes in a URL and an email address, sends a POST request"""
 
 import requests
